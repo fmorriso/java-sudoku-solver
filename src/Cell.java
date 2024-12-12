@@ -9,6 +9,9 @@ public class Cell {
     private Grid parent;
 
     private Cell() {/* prevent uninitialized instances */}
+
+    public ArrayList<Integer> getEligibleValues() { return eligibleValues; }
+
     public Cell(int row, int col, int value, Grid parent) {
         this.row = row;
         this.col = col;

@@ -29,7 +29,7 @@ public class GUI implements Runnable{
         frame.setLayout(new GridLayout(1, 1));
         // tell the main JPanel who its parent is and give it a way to communicate with the game controller.
         PuzzlePanel puzzlePanel = new PuzzlePanel(frame, gameController);
-        frame.getContentPane().add( puzzlePanel );
+        frame.getContentPane().add(puzzlePanel);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // puts the JFrame in the middle of the physical screen
