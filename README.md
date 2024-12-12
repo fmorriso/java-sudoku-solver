@@ -15,4 +15,5 @@ A simple implementation of the Sudoku game
 | 2024-12-12 | Initial creation |
 
 ## References
-* [Display an Image in Java](https://www.delfts
+* [Sudoku Rules](https://sudoku.com/sudoku-rules/)
+* [Mastering Sudoku for Beginners](https://masteringsudoku.com/sudoku-rules-beginners/)

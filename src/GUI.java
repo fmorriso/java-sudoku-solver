@@ -15,7 +15,7 @@ public class GUI implements Runnable{
     public void run() {
         final int multipleof = 10;
         Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.5, multipleof, true);
-        
+
         GameWindow frame = new GameWindow(title, scaledSize);
         frame.setSize(scaledSize);
         frame.setPreferredSize(scaledSize);
