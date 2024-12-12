@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -9,12 +10,19 @@ import java.util.ArrayList;
 public class GameController {
     private static final int NUMBER_OF_GRIDS = 9;
 
+    private Dimension scaledSize;
 
     private ArrayList<Grid> puzzle;
 
     public GameController() {
-        // just for documentation purposes
+        // be smart about using the available device screen size instead of hard-coding like most people do.d
+        final int multipleof = 10;
+        scaledSize = SwingScreenUtilities.getScaledSize(0.4, multipleof, true);
     }
+
+
+    public Dimension getScaledSize() { return scaledSize; }
+
 
     public void startNewPuzzle() {
         // create and populate the nine 3 x 3 grids that comprise the current puzzle.

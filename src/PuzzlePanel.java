@@ -25,11 +25,11 @@ public class PuzzlePanel extends JPanel {
         initializePuzzleControlsDisplay();
     }
 
-    private void initializePuzzleControlsDisplay() {
-        //TODO: create Sub-JPanel to display the 9 grids in a 3 row x 3 column GridLayout
-    }
-
     private void initializePuzzleGridDisplay() {
         //TODO: create Sub-JPanel to display the game controls (JButtons) in a single 1 row by any # cols GridLayout
+    }
+
+    private void initializePuzzleControlsDisplay() {
+        //TODO: create Sub-JPanel to display the 9 grids in a 3 row x 3 column GridLayout
     }
 }

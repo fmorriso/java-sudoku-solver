@@ -18,16 +18,18 @@ public class GUI implements Runnable{
     @Override
     public void run() {
         // be smart about using the available device screen size instead of hard-coding like most people do.d
-        final int multipleof = 10;
-        Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.4, multipleof, true);
+        Dimension scaledSize = gameController.getScaledSize();
 
-        GameWindow frame = new GameWindow(title, scaledSize, gameController);
+        GameWindow frame = new GameWindow(title, gameController);
         frame.setSize(scaledSize);
         frame.setPreferredSize(scaledSize);
+
+        // the main JPanel within the JFrame should take up the entire JFrame because
+        // we will introduce sub-JPanels later on to further subdivide that main JPanel.
         frame.setLayout(new GridLayout(1, 1));
         frame.getContentPane().add( new PuzzlePanel(frame) );
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // puts the JFrame in the middle of the physical screen
         frame.setLocationRelativeTo(null);
 
