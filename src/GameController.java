@@ -11,6 +11,7 @@ public class GameController {
 
 
     private ArrayList<Grid> puzzle;
+
     public GameController() {
         // just for documentation purposes
     }
@@ -20,7 +21,7 @@ public class GameController {
         puzzle = new ArrayList<Grid>(NUMBER_OF_GRIDS);
         for (int i = 1; i <= NUMBER_OF_GRIDS; i++) {
             Grid grid = new Grid(i);
-            grid.populateGrid();
+            grid.createEmptyGrid();
         }
 
     }

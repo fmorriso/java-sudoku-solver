@@ -26,7 +26,7 @@ public class Grid {
                 '}';
     }
 
-    public void populateGrid() {
+    public void createEmptyGrid() {
         for (int row = 1; row <= CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= CELLS_PER_GRID_COL; col++) {
                 // NOTE: we use a value of zero (0) to signify an empty cell in the grid.

@@ -1,13 +1,17 @@
 import javax.swing.JFrame;
 import java.awt.Dimension;
-import java.awt.Toolkit;
 
 public class GUI implements Runnable{
     private String title;
-    public GUI(String title) {
+    private GameController gameController;
+
+    public GUI(String title, GameController gameController) {
         this.title = title;
+        this.gameController = gameController;
     }
+
     private GUI() {/* prevent uninitalized instances */}
+
     /**
      * Runs this operation.
      */
@@ -17,7 +21,7 @@ public class GUI implements Runnable{
         final int multipleof = 10;
         Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.4, multipleof, true);
 
-        GameWindow frame = new GameWindow(title, scaledSize);
+        GameWindow frame = new GameWindow(title, scaledSize, gameController);
         frame.setSize(scaledSize);
         frame.setPreferredSize(scaledSize);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

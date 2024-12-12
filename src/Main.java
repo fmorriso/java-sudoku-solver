@@ -5,7 +5,10 @@ public class Main {
     public static void main(String[] args) {
         String title = String.format("Sudoku Solver using java version %s", getJavaVersion());
         System.out.println(title);
-        GUI gui = new GUI(title);
+
+        GameController gameController = new GameController();
+
+        GUI gui = new GUI(title, gameController);
         SwingUtilities.invokeLater(gui);
     }
 
