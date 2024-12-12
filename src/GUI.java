@@ -1,5 +1,5 @@
 import javax.swing.JFrame;
-import java.awt.Dimension;
+import java.awt.*;
 
 public class GUI implements Runnable{
     private String title;
@@ -24,6 +24,7 @@ public class GUI implements Runnable{
         GameWindow frame = new GameWindow(title, scaledSize, gameController);
         frame.setSize(scaledSize);
         frame.setPreferredSize(scaledSize);
+        frame.setLayout(new GridLayout(1, 1));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // puts the JFrame in the middle of the physical screen
