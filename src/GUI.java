@@ -27,7 +27,9 @@ public class GUI implements Runnable{
         // the main JPanel within the JFrame should take up the entire JFrame because
         // we will introduce sub-JPanels later on to further subdivide that main JPanel.
         frame.setLayout(new GridLayout(1, 1));
-        frame.getContentPane().add( new PuzzlePanel(frame) );
+        // tell the main JPanel who its parent is and give it a way to communicate with the game controller.
+        PuzzlePanel puzzlePanel = new PuzzlePanel(frame, gameController);
+        frame.getContentPane().add( puzzlePanel );
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // puts the JFrame in the middle of the physical screen

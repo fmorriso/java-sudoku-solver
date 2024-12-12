@@ -13,13 +13,17 @@ import javax.swing.border.Border;
 public class PuzzlePanel extends JPanel {
     private JFrame parentFrame;
     private Dimension panelSize;
+    private GameController gameController;
 
     private PuzzlePanel(){/* prevent uninitialized instances */}
-    public PuzzlePanel(JFrame frame) {
+    public PuzzlePanel(JFrame frame, GameController gameController) {
         this.parentFrame = frame;
         this.setLayout(new GridLayout(2, 0));
+
         panelSize = frame.getSize();
         this.setPreferredSize(panelSize);
+
+
 
         initializePuzzleGridDisplay();
         initializePuzzleControlsDisplay();
