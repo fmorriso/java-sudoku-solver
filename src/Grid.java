@@ -26,6 +26,11 @@ public class Grid {
                 '}';
     }
 
+    /**
+     * Generates an empty 3 x 3 grid of "empty" (as far as the user is concerned) cells.
+     *
+     * We also let the Cell know who its parent grid is in case it needs to signal something to that parent grid.
+     */
     public void createEmptyGrid() {
         for (int row = 1; row <= CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= CELLS_PER_GRID_COL; col++) {
