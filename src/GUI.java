@@ -13,8 +13,9 @@ public class GUI implements Runnable{
      */
     @Override
     public void run() {
+        // be smart about using the available device screen size instead of hard-coding like most people do.d
         final int multipleof = 10;
-        Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.5, multipleof, true);
+        Dimension scaledSize = SwingScreenUtilities.getScaledSize(0.4, multipleof, true);
 
         GameWindow frame = new GameWindow(title, scaledSize);
         frame.setSize(scaledSize);
