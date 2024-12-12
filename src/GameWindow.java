@@ -10,6 +10,6 @@ public class GameWindow extends JFrame {
     public  GameWindow(String title, GameController gameController){
         super(title);
         this.gameController = gameController;
-        this.scaledSize = gameController.getScaledSize()
+        this.scaledSize = gameController.getScaledSize();
     }
 }
