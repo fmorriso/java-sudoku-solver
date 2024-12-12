@@ -25,6 +25,7 @@ public class GUI implements Runnable{
         frame.setSize(scaledSize);
         frame.setPreferredSize(scaledSize);
         frame.setLayout(new GridLayout(1, 1));
+        frame.getContentPane().add( new PuzzlePanel(frame) );
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // puts the JFrame in the middle of the physical screen
