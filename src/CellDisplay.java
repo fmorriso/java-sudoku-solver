@@ -22,7 +22,7 @@ public class CellDisplay extends JSpinner {
      * they have already been set and validated.
      */
     public void updateDisplay() {
-        numbers = new ArrayList<Integer>();
+        numbers.clear();
         numbers.addAll(cell.getEligibleValues());
     }
 }
