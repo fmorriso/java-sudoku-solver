@@ -4,8 +4,8 @@ import java.util.ArrayList;
  * Contains the information about a single 9 x 9 grid of cells used by the puzzle.
  */
 public class Grid {
-    private static final int CELLS_PER_GRID_ROW = 3;
-    private static final int CELLS_PER_GRID_COL = 3;
+    public static final int CELLS_PER_GRID_ROW = 3;
+    public static final int CELLS_PER_GRID_COL = 3;
 
     public int getGridNumber() { return gridNumber; }
 
