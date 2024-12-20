@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.UUID;
 
 public class Cell {
+
+    private static final ArrayList<Integer> fullListOfValues = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
     private UUID uniqueID;
     private int value;
     private int row; // the full row this cell is a member of
@@ -19,8 +22,8 @@ public class Cell {
         this.uniqueID = UUID.randomUUID();
         this.row = row;
         this.col = col;
-        this.value = value; // NOTE: we accept values 0-9 during construction to allow zero to signify an empty cell.
-        this.eligibleValues = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        this.value = value;
+        resetEligibleValues();
         this.parent = parent;
     }
 
@@ -38,6 +41,15 @@ public class Cell {
         if (eligibleValues.contains(value)) {
             eligibleValues.remove(value);
         }
+    }
+
+    public void resetEligibleValues() {
+        this.eligibleValues.clear();
+        this.eligibleValues.addAll(fullListOfValues);
+    }
+
+    public void updateEligibleValues(ArrayList<Integer> values){
+        this.eligibleValues = values;
     }
 
     public boolean isEligibleToContain(int value) {
