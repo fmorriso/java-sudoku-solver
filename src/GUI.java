@@ -18,22 +18,22 @@ public class GUI implements Runnable{
     @Override
     public void run() {
         // be smart about using the available device screen size instead of hard-coding like most people do.d
-        Dimension scaledSize = gameController.getScaledSize();
+        //Dimension scaledSize = gameController.getScaledSize();
 
         GameWindow frame = new GameWindow(title, gameController);
-        frame.setSize(scaledSize);
-        frame.setPreferredSize(scaledSize);
+        //frame.setSize(scaledSize);
+        //frame.setPreferredSize(scaledSize);
 
         // the main JPanel within the JFrame should take up the entire JFrame because
         // we will introduce sub-JPanels later on to further subdivide that main JPanel.
-        frame.setLayout(new GridLayout(1, 1));
+        //frame.setLayout(new GridLayout(1, 1));
         // tell the main JPanel who its parent is and give it a way to communicate with the game controller.
-        PuzzlePanel puzzlePanel = new PuzzlePanel(frame, gameController);
-        frame.getContentPane().add(puzzlePanel);
+        //PuzzlePanel puzzlePanel = new PuzzlePanel(frame, gameController);
+        //frame.getContentPane().add(puzzlePanel);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // puts the JFrame in the middle of the physical screen
-        frame.setLocationRelativeTo(null);
+//        frame.setLocationRelativeTo(null);
 
         frame.setVisible(true);
     }

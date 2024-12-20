@@ -26,11 +26,7 @@ public class GameController {
 
     public void startNewPuzzle() {
         // create and populate the nine 3 x 3 grids that comprise the current puzzle.
-        puzzle = new ArrayList<Grid>(NUMBER_OF_GRIDS);
-        for (int i = 1; i <= NUMBER_OF_GRIDS; i++) {
-            Grid grid = new Grid(i);
-            grid.createEmptyGrid();
-        }
+
 
     }
 

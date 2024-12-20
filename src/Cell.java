@@ -1,7 +1,10 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class Cell {
+    private UUID uniqueID;
     private int value;
     private int row; // the full row this cell is a member of
     private int col; // the full column this cell is a member of
@@ -13,6 +16,7 @@ public class Cell {
     public ArrayList<Integer> getEligibleValues() { return eligibleValues; }
 
     public Cell(int row, int col, int value, Grid parent) {
+        this.uniqueID = UUID.randomUUID();
         this.row = row;
         this.col = col;
         this.value = value; // NOTE: we accept values 0-9 during construction to allow zero to signify an empty cell.
@@ -20,6 +24,7 @@ public class Cell {
         this.parent = parent;
     }
 
+    public UUID getUniqueID() { return uniqueID; }
     public int getRow() { return row; }
     public int getCol() { return col; }
     public int getValue() { return value; }
@@ -36,18 +41,13 @@ public class Cell {
     }
 
     public boolean isEligibleToContain(int value) {
-        //TODO: need more logic here to consider parent rows
+        //TODO: need more logic here to consider parent rows, parent columns and sibling cells
         return eligibleValues.contains(value);
     }
 
     @Override
     public String toString() {
-        return "Cell{" +
-                "value=" + value +
-                ", row=" + row +
-                ", col=" + col +
-                ", eligibleValues=" + eligibleValues +
-                ", parent=" + parent +
-                '}';
+        return MessageFormat.format("Cell'{' uniqueId={0}, value={1}, row={2}, col={3}, eligibleValues={4}'}'",
+                uniqueID, value, row, col, eligibleValues);
     }
 }
