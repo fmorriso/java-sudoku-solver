@@ -44,12 +44,12 @@ public class Cell {
     }
 
     public void resetEligibleValues() {
-        this.eligibleValues.clear();
-        this.eligibleValues.addAll(fullListOfValues);
+        updateEligibleValues(fullListOfValues);
     }
 
     public void updateEligibleValues(ArrayList<Integer> values){
-        this.eligibleValues = values;
+        this.eligibleValues.clear();
+        this.eligibleValues.addAll(values);
     }
 
     public boolean isEligibleToContain(int value) {
