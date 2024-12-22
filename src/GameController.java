@@ -34,4 +34,12 @@ public class GameController {
         cells.add(cell);
     }
 
+    public void cellValueChanged(Cell changedCell) {
+        //TODO: use the value of the cell that changed to set the
+        // allowable values of other cells:
+        // 1. in the same 3 x 3 grid (siblings)
+        // 2. in the same row of other 3 x 3 grids
+        // 3. in the same column of other 3 x 3 grids
+    }
+
 }
