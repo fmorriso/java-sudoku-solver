@@ -12,7 +12,7 @@ public class GameController {
 
     private Dimension scaledSize;
 
-    private ArrayList<Grid> puzzle;
+    private ArrayList<Cell> cells;
 
     public GameController() {
         // be smart about using the available device screen size instead of hard-coding like most people do.d
@@ -28,6 +28,10 @@ public class GameController {
         // create and populate the nine 3 x 3 grids that comprise the current puzzle.
 
 
+    }
+
+    public void addCell(Cell cell) {
+        cells.add(cell);
     }
 
 }

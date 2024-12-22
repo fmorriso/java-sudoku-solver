@@ -62,4 +62,11 @@ public class Cell {
         return MessageFormat.format("Cell'{' uniqueId={0}, value={1}, row={2}, col={3}, eligibleValues={4}'}'",
                 uniqueID, value, row, col, eligibleValues);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Cell)) return false;
+        Cell that = (Cell) o;
+        return this.uniqueID.equals(that.uniqueID);
+    }
 }
