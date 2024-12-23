@@ -3,7 +3,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 //
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * This is the main window of the game.
@@ -11,7 +11,9 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame {
     private Dimension scaledSize;
     private GameController gameController;
-    private PuzzlePanel puzzlePanel;
+
+    public GameController getGameController() { return gameController;}
+
     private GridBagConstraints gbc = new GridBagConstraints();
 
     private GameWindow() {/* prevent uninitialized instances */}
@@ -35,24 +37,43 @@ public class GameWindow extends JFrame {
         createGameControlsPanel();
     }
 
-    private void createGameControlsPanel() {
 
-    }
-
+    // 3 of 4 ROWS
     private void createPuzzlePanel() {
-        PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
+        //PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
+        PuzzleGridSubPanel puzzlePanel = new PuzzleGridSubPanel(this);
         puzzlePanel.setBackground(Color.BLUE);
-        // puzzle panel takes two out of three rows in the layout
+
         gbc.gridx = 0;       // First column
         gbc.gridy = 0;       // First row
 
         gbc.gridwidth = 1;   // Occupy one column
-        gbc.gridheight = GridBagConstraints.RELATIVE; // 2;  // Span two rows
+        gbc.gridheight = 3;  // number of rows to span
 
         gbc.weightx = 1;     // Stretch horizontally
-        gbc.weighty = 2;     // Stretch vertically (relative weight)
+        gbc.weighty = 3;     // Stretch vertically (relative weight)
+
         gbc.fill = GridBagConstraints.BOTH; // Fill the entire cell
 
         getContentPane().add(puzzlePanel, gbc);
+    }
+
+    // BOTTOM ROW
+    private void createGameControlsPanel() {
+        PuzzleControlsSubPanel gameControlsSubPanel = new PuzzleControlsSubPanel(this);
+        gameControlsSubPanel.setBackground(Color.RED);
+
+        gbc.gridx = 0;       // First column
+        gbc.gridy = 3;       // fourth row
+
+        gbc.gridwidth = 1;   // Occupy one column
+        gbc.gridheight = 1;  // Span one row
+
+        gbc.weightx = 1;     // Stretch horizontally
+        gbc.weighty = 1;     // Stretch vertically (relative weight)
+
+        gbc.fill = GridBagConstraints.BOTH; // Fill the entire cell
+
+        getContentPane().add(gameControlsSubPanel, gbc);
     }
 }

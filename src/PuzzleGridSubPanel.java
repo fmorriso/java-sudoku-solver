@@ -9,13 +9,14 @@ import java.util.ArrayList;
 public class PuzzleGridSubPanel extends JPanel {
 
     private GameController gameController;
-    private JPanel parentPanel;
+    private GameWindow parentFrame;
     private ArrayList<Grid> gridList;
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
-    public PuzzleGridSubPanel(GameController gameController, JPanel parentPanel) {
-        this.gameController = gameController;
-        this.parentPanel = parentPanel;
+    public PuzzleGridSubPanel(GameWindow parentFrame) {
+
+        this.parentFrame = parentFrame;
+        this.parentFrame.getGameController();
         this.gridList = new ArrayList<>();
 
         GridLayout gridLayout = new GridLayout(3, 3);
