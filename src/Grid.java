@@ -11,9 +11,11 @@ public class Grid {
 
     private int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
     private ArrayList<Cell> cells;
+    private GameController gameController;
 
-    public Grid(int gridNumber) {
+    public Grid(int gridNumber, GameController gameController) {
         this.gridNumber = gridNumber;
+        this.gameController = gameController;
         cells = new ArrayList<>(9);
     }
 
@@ -35,8 +37,9 @@ public class Grid {
         for (int row = 1; row <= CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= CELLS_PER_GRID_COL; col++) {
                 // NOTE: we use a value of zero (0) to signify an empty cell in the grid.
-                Cell cell = new Cell(row, col, 0, this);
+                Cell cell = new Cell(gridNumber, row, col, 0, this);
                 cells.add(cell);
+                gameController.addCell(cell);
             }
         }
     }

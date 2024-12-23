@@ -30,8 +30,15 @@ public class GameController {
 
     }
 
+    /** Add the specified cell to the list cells
+     * @param cell - The Cell information
+     */
     public void addCell(Cell cell) {
-        cells.add(cell);
+        // don't add the same cell twice
+        if(!cells.contains(cell)) {
+            cells.add(cell);
+        }
+
     }
 
     public void cellValueChanged(Cell changedCell) {

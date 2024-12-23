@@ -8,6 +8,7 @@ public class Cell {
     private static final ArrayList<Integer> fullListOfValues = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
     private UUID uniqueID;
+    private int gridNumber;
     private int value;
     private int row; // the full row this cell is a member of
     private int col; // the full column this cell is a member of
@@ -18,8 +19,9 @@ public class Cell {
 
     public ArrayList<Integer> getEligibleValues() { return eligibleValues; }
 
-    public Cell(int row, int col, int value, Grid parent) {
+    public Cell(int gridNumber, int row, int col, int value, Grid parent) {
         this.uniqueID = UUID.randomUUID();
+        this.gridNumber = gridNumber;
         this.row = row;
         this.col = col;
         this.value = value;
@@ -28,6 +30,7 @@ public class Cell {
     }
 
     public UUID getUniqueID() { return uniqueID; }
+    public int getGridNumber() { return gridNumber; }
     public int getRow() { return row; }
     public int getCol() { return col; }
     public int getValue() { return value; }
