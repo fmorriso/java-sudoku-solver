@@ -25,8 +25,8 @@ public class Cell {
         this.row = row;
         this.col = col;
         this.value = value;
-        resetEligibleValues();
         this.parent = parent;
+        resetEligibleValues();
     }
 
     public UUID getUniqueID() { return uniqueID; }
@@ -62,8 +62,8 @@ public class Cell {
 
     @Override
     public String toString() {
-        return MessageFormat.format("Cell'{' uniqueId={0}, value={1}, row={2}, col={3}, eligibleValues={4}'}'",
-                uniqueID, value, row, col, eligibleValues);
+        return MessageFormat.format("Cell'{'gridNumber={0}, uniqueId={1}, value={2}, row={3}, col={4}, eligibleValues={5}'}'",
+                gridNumber, uniqueID, value, row, col, eligibleValues);
     }
 
     @Override
