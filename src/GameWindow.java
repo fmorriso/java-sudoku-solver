@@ -1,6 +1,13 @@
-import java.awt.*;
-
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+//
 import javax.swing.JFrame;
+
+/**
+ * This is the main window of the game.
+ */
 public class GameWindow extends JFrame {
     private Dimension scaledSize;
     private GameController gameController;
