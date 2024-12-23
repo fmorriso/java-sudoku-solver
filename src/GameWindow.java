@@ -9,6 +9,7 @@ import javax.swing.*;
  * This is the main window of the game.
  */
 public class GameWindow extends JFrame {
+    private static final int UPPER_PANEL_ROW_SPAN = 8;
     private Dimension scaledSize;
     private GameController gameController;
 
@@ -48,10 +49,10 @@ public class GameWindow extends JFrame {
         gbc.gridy = 0;       // First row
 
         gbc.gridwidth = 1;   // Occupy one column
-        gbc.gridheight = 3;  // number of rows to span
+        gbc.gridheight = UPPER_PANEL_ROW_SPAN;  // number of rows to span
 
         gbc.weightx = 1;     // Stretch horizontally
-        gbc.weighty = 3;     // Stretch vertically (relative weight)
+        gbc.weighty = UPPER_PANEL_ROW_SPAN;     // Stretch vertically (relative weight)
 
         gbc.fill = GridBagConstraints.BOTH; // Fill the entire cell
 
@@ -64,7 +65,7 @@ public class GameWindow extends JFrame {
         gameControlsSubPanel.setBackground(Color.RED);
 
         gbc.gridx = 0;       // First column
-        gbc.gridy = 3;       // fourth row
+        gbc.gridy = UPPER_PANEL_ROW_SPAN;       // relative (to zero) row
 
         gbc.gridwidth = 1;   // Occupy one column
         gbc.gridheight = 1;  // Span one row
