@@ -12,6 +12,7 @@ public class PuzzleGridSubPanel extends JPanel {
     private JPanel parentPanel;
     private ArrayList<Grid> gridList;
 
+    private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
     public PuzzleGridSubPanel(GameController gameController, JPanel parentPanel) {
         this.gameController = gameController;
         this.parentPanel = parentPanel;
@@ -34,5 +35,5 @@ public class PuzzleGridSubPanel extends JPanel {
         }
     }
 
-    private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
+
 }
