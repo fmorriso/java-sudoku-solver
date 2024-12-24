@@ -10,19 +10,22 @@ import javax.swing.*;
  */
 public class GameWindow extends JFrame {
     private static final int UPPER_PANEL_ROW_SPAN = 8;
-    private Dimension scaledSize;
     private GameController gameController;
 
-    public GameController getGameController() { return gameController;}
+    public GameController getGameController() {
+        return gameController;
+    }
 
-    private GridBagConstraints gbc = new GridBagConstraints();
+    private final GridBagConstraints gbc = new GridBagConstraints();
 
     private GameWindow() {/* prevent uninitialized instances */}
-    public  GameWindow(String title, GameController gameController){
-        super(title);
-        this.gameController = gameController;
-        this.scaledSize = gameController.getScaledSize();
 
+    public GameWindow(String title, GameController gameController) {
+        super(title);
+
+        this.gameController = gameController;
+
+        Dimension scaledSize = this.gameController.getScaledSize();
         this.setSize(scaledSize);
         this.setPreferredSize(scaledSize);
         this.setMinimumSize(scaledSize);
@@ -39,7 +42,9 @@ public class GameWindow extends JFrame {
     }
 
 
-    // 3 of 4 ROWS
+    /**
+     * The upper portion of the main window is devoted to holding the grids of sudoku numbers
+     */
     private void createPuzzlePanel() {
         //PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
         PuzzleGridSubPanel puzzlePanel = new PuzzleGridSubPanel(this);
@@ -59,11 +64,14 @@ public class GameWindow extends JFrame {
         getContentPane().add(puzzlePanel, gbc);
     }
 
-    // BOTTOM ROW
+
+    /**
+     * The bottom portion of the main window is devoted to holding game controls (mostly buttons).
+     */
     private void createGameControlsPanel() {
         PuzzleControlsSubPanel gameControlsSubPanel = new PuzzleControlsSubPanel(this);
-        gameControlsSubPanel.setBackground(Color.RED);
 
+        // use the last row of the main window for game control buttons
         gbc.gridx = 0;       // First column
         gbc.gridy = UPPER_PANEL_ROW_SPAN;       // relative (to zero) row
 
