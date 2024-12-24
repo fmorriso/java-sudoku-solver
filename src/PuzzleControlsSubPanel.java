@@ -5,12 +5,12 @@ import java.awt.event.ActionEvent;
 
 public class PuzzleControlsSubPanel extends JPanel {
     private GameController gameController;
-    private GameWindow parentFrame;
+    private GameWindow parentWindow;
 
     private PuzzleControlsSubPanel() {/* prevent uninitialized instances. */}
-    public PuzzleControlsSubPanel(GameWindow parentFrame) {
-        this.parentFrame = parentFrame;
-        this.gameController = this.parentFrame.getGameController();
+    public PuzzleControlsSubPanel(GameWindow parentWindow) {
+        this.parentWindow = parentWindow;
+        this.gameController = this.parentWindow.getGameController();
         //
         this.setLayout(new GridLayout(1,0));
         this.add(createStartNewGameButton());

@@ -6,12 +6,12 @@ import java.util.List;
 public class SudokuSpinner extends JSpinner {
 
     private int groupId;
-    private JPanel parentPanel;
+    private JPanel parentWindow;
 
-    public SudokuSpinner(SpinnerListModel model, int groupId, JPanel parent) {
+    public SudokuSpinner(SpinnerListModel model, int groupId, JPanel parentWindow) {
         super(model);
         this.groupId = groupId;
-        this.parentPanel = parent;
+        this.parentWindow = parentWindow;
     }
 
     public int getGroupId() {return groupId;}
