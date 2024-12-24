@@ -3,7 +3,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 //
-import javax.swing.*;
+import javax.swing.JFrame;
 
 /**
  * This is the main window of the game.

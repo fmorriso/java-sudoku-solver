@@ -26,7 +26,7 @@ public class GameController {
 
     public void startNewPuzzle() {
         // create and populate the nine 3 x 3 grids that comprise the current puzzle.
-
+        // should be called by a JButton designed to start a new games
 
     }
 
