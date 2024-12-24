@@ -1,32 +1,35 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Contains the information about a single 9 x 9 grid of cells used by the puzzle.
  */
-public class Grid {
+public class PuzzleGrid {
     public static final int CELLS_PER_GRID_ROW = 3;
     public static final int CELLS_PER_GRID_COL = 3;
 
-    public int getGridNumber() { return gridNumber; }
-
-    private int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
+    private final int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
+    private final UUID gridUniqueId;
     private ArrayList<Cell> cells;
     private GameController gameController;
 
-    public Grid(int gridNumber, GameController gameController) {
+    public PuzzleGrid(int gridNumber, GameController gameController) {
+        this.gridUniqueId = UUID.randomUUID();
         this.gridNumber = gridNumber;
         this.gameController = gameController;
         cells = new ArrayList<>(9);
     }
 
+    public UUID getGridUniqueId() {return gridUniqueId;}
+    public int getGridNumber() {return gridNumber;}
 
     @Override
     public String toString() {
-        return "Grid{" +
-                "gridNumber=" + gridNumber +
-                ", cells=" + cells +
-                '}';
+        return MessageFormat.format("Grid'{'gridUniqueId={0}, gridNumber={1}, cells={2}'}'"
+                , gridUniqueId, gridNumber, cells);
     }
+
 
     /**
      * Generates an empty 3 x 3 grid of "empty" (as far as the user is concerned) cells.
@@ -37,7 +40,7 @@ public class Grid {
         for (int row = 1; row <= CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= CELLS_PER_GRID_COL; col++) {
                 // NOTE: we use a value of zero (0) to signify an empty cell in the grid.
-                Cell cell = new Cell(gridNumber, row, col, 0, this);
+                Cell cell = new Cell(row, col, 0, this);
                 cells.add(cell);
                 gameController.addCell(cell);
             }

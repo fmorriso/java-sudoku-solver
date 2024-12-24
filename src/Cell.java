@@ -8,29 +8,26 @@ public class Cell {
     private static final ArrayList<Integer> fullListOfValues = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
     private UUID uniqueID;
-    private int gridNumber;
     private int value;
     private int row; // the full row this cell is a member of
     private int col; // the full column this cell is a member of
     private ArrayList<Integer> eligibleValues;
-    private Grid parent;
+    private PuzzleGrid parentGrid;
 
     private Cell() {/* prevent uninitialized instances */}
 
     public ArrayList<Integer> getEligibleValues() { return eligibleValues; }
 
-    public Cell(int gridNumber, int row, int col, int value, Grid parent) {
+    public Cell(int row, int col, int value, PuzzleGrid parentGrid) {
         this.uniqueID = UUID.randomUUID();
-        this.gridNumber = gridNumber;
         this.row = row;
         this.col = col;
         this.value = value;
-        this.parent = parent;
+        this.parentGrid = parentGrid;
         resetEligibleValues();
     }
 
     public UUID getUniqueID() { return uniqueID; }
-    public int getGridNumber() { return gridNumber; }
     public int getRow() { return row; }
     public int getCol() { return col; }
     public int getValue() { return value; }
@@ -60,15 +57,10 @@ public class Cell {
         this.eligibleValues.addAll(values);
     }
 
-    public boolean isEligibleToContain(int value) {
-        //TODO: need more logic here to consider parent rows, parent columns and sibling cells
-        return eligibleValues.contains(value);
-    }
-
     @Override
     public String toString() {
-        return MessageFormat.format("Cell'{'gridNumber={0}, uniqueId={1}, value={2}, row={3}, col={4}, eligibleValues={5}'}'",
-                gridNumber, uniqueID, value, row, col, eligibleValues);
+        return MessageFormat.format("Cell'{'uniqueId={0}, value={1}, row={2}, col={3}, eligibleValues={4}'}'",
+                uniqueID, value, row, col, eligibleValues);
     }
 
     @Override
