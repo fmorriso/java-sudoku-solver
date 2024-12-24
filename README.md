@@ -5,8 +5,8 @@ A simple implementation of the Sudoku game
 | Tool     |  Version |
 |:---------|---------:|
 | Java     | 23.0.1.0 |
-| IntelliJ | 2024.3.0 |
-| VSCode   |   1.96.0 |
+| IntelliJ | 2024.3.1 |
+| VSCode   |   1.96.2 |
 
 ## Change History
 

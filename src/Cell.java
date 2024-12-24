@@ -37,7 +37,12 @@ public class Cell {
 
     public void setValue(int value) {
         // sanity check which only allows new values of 1-9.
-        if (value < 1 || value > 9) {throw new IllegalArgumentException("Value must be between 1 and 9");}
+        if (value < 1 || value > 9) {
+        	throw new IllegalArgumentException("Value must be between 1 and 9");
+        }
+        if (!eligibleValues.contains(value)) {
+        	throw new IllegalArgumentException(String.format("value %d is not in the list of eligble values for this cell: %s", value, eligibleValues));
+        }
         // set the current value ...
         this.value = value;
         // ... and remove it from the list of eligible values.
