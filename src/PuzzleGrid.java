@@ -3,20 +3,25 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * Contains the information about a single 9 x 9 grid of cells used by the puzzle.
+ * Contains the non-GUI information about a single 9 x 9 grid of cells used by the puzzle.
  */
 public class PuzzleGrid {
     public static final int CELLS_PER_GRID_ROW = 3;
     public static final int CELLS_PER_GRID_COL = 3;
 
-    private final int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
-    private final UUID gridUniqueId;
+    private  int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
+    private  UUID gridUniqueId;
+    private  int row;
+    private  int col;
     private ArrayList<Cell> cells;
     private GameController gameController;
 
-    public PuzzleGrid(int gridNumber, GameController gameController) {
-        this.gridUniqueId = UUID.randomUUID();
+    private PuzzleGrid() {/* prevent uninitialized instances */}
+    public PuzzleGrid(UUID gridUniqueId, int gridNumber, int row, int col, GameController gameController) {
+        this.gridUniqueId = gridUniqueId;
         this.gridNumber = gridNumber;
+        this.row = row;
+        this.col = col;
         this.gameController = gameController;
         cells = new ArrayList<>(9);
     }

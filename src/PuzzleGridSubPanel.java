@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * This is the puzzle portion of the game GUI, which appears in the
@@ -29,8 +30,12 @@ public class PuzzleGridSubPanel extends JPanel {
         int gridNumber = 1;
         for(int row = 1; row < PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
             for(int col = 1; col < PuzzleGrid.CELLS_PER_GRID_COL; col++) {
-                PuzzleGrid grid = new PuzzleGrid(gridNumber, gameController);
+                UUID uniqueId = UUID.randomUUID();
+                PuzzleGrid grid = new PuzzleGrid(uniqueId, gridNumber, row, col, gameController);
                 gridList.add(grid);
+                OuterGrid outerGrid = new OuterGrid(this, grid,gameController);
+                this.add(outerGrid);
+
                 gridNumber++;
             }
         }
