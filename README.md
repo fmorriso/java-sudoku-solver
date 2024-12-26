@@ -17,6 +17,7 @@ A simple implementation of the Sudoku game
 ## References
 * [Sudoku Rules](https://sudoku.com/sudoku-rules/)
 * [Mastering Sudoku for Beginners](https://masteringsudoku.com/sudoku-rules-beginners/)
+* [IntelliJ GUI Designer - Tutorial](https://www.jetbrains.com/help/idea/design-gui-using-swing.html)
 
 ## Developer Notes
 ### GridBagLayout and GridBagConstraints
