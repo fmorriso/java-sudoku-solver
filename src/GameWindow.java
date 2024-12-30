@@ -30,6 +30,8 @@ public class GameWindow extends JFrame {
         this.setPreferredSize(scaledSize);
         this.setMinimumSize(scaledSize);
 
+        this.setBackground(Color.RED);
+
         //  layout to make a 3-row by 1-column grid
         setLayout(new GridBagLayout());
 

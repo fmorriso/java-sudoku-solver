@@ -11,18 +11,20 @@ public class PuzzleGridSubPanel extends JPanel {
 
     private GameController gameController;
     private GameWindow parentWindow;
-    private ArrayList<PuzzleGrid> gridList;
+    private ArrayList gridList;
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
     public PuzzleGridSubPanel(GameWindow parentWindow) {
 
         this.parentWindow = parentWindow;
         this.parentWindow.getGameController();
-        this.gridList = new ArrayList<>();
+        this.gridList = new ArrayList<PuzzleGrid>();
 
+        /* TODO: why does turning on this code mess up the Puzzle Grid layout?
         GridLayout gridLayout = new GridLayout(3, 3);
         this.setLayout(gridLayout);
         setUpNewGrids();
+        */
     }
 
     private void setUpNewGrids() {
