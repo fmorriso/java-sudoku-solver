@@ -19,25 +19,27 @@ public class PuzzleGridSubPanel extends JPanel {
         this.parentWindow = parentWindow;
         this.parentWindow.getGameController();
         this.gridList = new ArrayList<PuzzleGrid>();
+        this.setToolTipText("Puzzle Grid Sub Panel");
+        this.setBorder(BorderFactory.createLineBorder(Color.green.darker(), 8));
 
-        /* TODO: why does turning on this code mess up the Puzzle Grid layout?
         GridLayout gridLayout = new GridLayout(3, 3);
         this.setLayout(gridLayout);
         setUpNewGrids();
-        */
+
     }
 
     private void setUpNewGrids() {
         gridList.clear();
         int gridNumber = 1;
-        for(int row = 1; row < PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
-            for(int col = 1; col < PuzzleGrid.CELLS_PER_GRID_COL; col++) {
+        for(int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
+            for(int col = 1; col <= PuzzleGrid.CELLS_PER_GRID_COL; col++) {
+                System.out.format("Setting up new PuzzleGrid number %d for row %d, col %d%n"
+                        , gridNumber, row, col);
                 UUID uniqueId = UUID.randomUUID();
                 PuzzleGrid grid = new PuzzleGrid(uniqueId, gridNumber, row, col, gameController);
                 gridList.add(grid);
                 OuterGrid outerGrid = new OuterGrid(this, grid,gameController);
                 this.add(outerGrid);
-
                 gridNumber++;
             }
         }
