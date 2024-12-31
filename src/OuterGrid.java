@@ -7,9 +7,9 @@ import java.util.UUID;
  * This is the GUI component that holds the outer 3 x 3 set of 3 x 3 inner grids
  */
 public class OuterGrid extends JPanel {
-
-    private static final Color BACKGROUND_COLOR = new Color(255*2/3, 255*3/4, 255);
-    private static final Border BORDER = BorderFactory.createLineBorder(Color.black, 4);
+// (164,219,232)
+    private static final Color BACKGROUND_COLOR = new Color(164, 219, 255);
+    private static final Border BORDER = BorderFactory.createLineBorder(Color.black, 2);
 
     private UUID uniqueId;
     private final PuzzleGridSubPanel parentWindow;

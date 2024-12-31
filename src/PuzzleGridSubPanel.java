@@ -18,7 +18,7 @@ public class PuzzleGridSubPanel extends JPanel {
 
         this.parentWindow = parentWindow;
         this.parentWindow.getGameController();
-        this.gridList = new ArrayList<PuzzleGrid>();
+        this.gridList = new ArrayList<PuzzleGrid>(9);
         this.setToolTipText("Puzzle Grid Sub Panel");
         this.setBorder(BorderFactory.createLineBorder(Color.green.darker(), 8));
 
@@ -37,7 +37,7 @@ public class PuzzleGridSubPanel extends JPanel {
                         , gridNumber, row, col);
                 UUID uniqueId = UUID.randomUUID();
                 PuzzleGrid grid = new PuzzleGrid(uniqueId, gridNumber, row, col, gameController);
-                gridList.add(grid);
+                boolean add = gridList.add(grid);
                 OuterGrid outerGrid = new OuterGrid(this, grid,gameController);
                 this.add(outerGrid);
                 gridNumber++;
