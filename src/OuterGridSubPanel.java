@@ -16,7 +16,7 @@ public class OuterGridSubPanel extends JPanel {
     private static final Color BACKGROUND_COLOR = new Color(164, 219, 255);
     private static final Border BORDER = BorderFactory.createLineBorder(Color.black, 2);
 
-    private UUID uniqueId;
+    private final UUID uniqueId;
     private final PuzzleGridSubPanel parentWindow;
     private final PuzzleGrid grid;
     private final GameController gameController;
