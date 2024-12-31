@@ -13,10 +13,10 @@ A simple implementation of the Sudoku game
 ## Change History
 
 | Date       | Description                        |
-| :--------- | :--------------------------------- |
+|:-----------|:-----------------------------------|
 | 2024-12-12 | Initial creation                   |
 | 2024-12-30 | adjust grid sizes, colors, borders |
-| 2024-12-31 | update access token |
+| 2024-12-31 | update access token                |
 
 ## References
 
