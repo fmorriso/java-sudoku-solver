@@ -10,9 +10,10 @@ A simple implementation of the Sudoku game
 
 ## Change History
 
-| Date       | Description      |
-|:-----------|:-----------------|
-| 2024-12-12 | Initial creation |
+| Date       | Description                        |
+|:-----------|:-----------------------------------|
+| 2024-12-12 | Initial creation                   |
+ | 2024-12-30 | adjust grid sizes, colors, borders |
 
 ## References
 * [Sudoku Rules](https://sudoku.com/sudoku-rules/)
