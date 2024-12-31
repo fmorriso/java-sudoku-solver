@@ -11,8 +11,6 @@ public class PuzzleGrid {
 
     private  int gridNumber; // the grid number, 1-9 of this 3 x 3 grid within the parent puzzle
     private  UUID gridUniqueId;
-    private  int row;
-    private  int col;
     private ArrayList<Cell> cells;
     private GameController gameController;
 
@@ -20,8 +18,6 @@ public class PuzzleGrid {
     public PuzzleGrid(UUID gridUniqueId, int gridNumber, int row, int col, GameController gameController) {
         this.gridUniqueId = gridUniqueId;
         this.gridNumber = gridNumber;
-        this.row = row;
-        this.col = col;
         this.gameController = gameController;
         cells = new ArrayList<>(9);
     }
