@@ -6,9 +6,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 
 /**
- * This is the main window of the game.
+ * This is the main window of the Sudoku game.
  */
-public class GameWindow extends JFrame {
+public class MainGameFrame extends JFrame {
     private static final int UPPER_PANEL_ROW_SPAN = 8;
     private GameController gameController;
 
@@ -18,21 +18,20 @@ public class GameWindow extends JFrame {
 
     private final GridBagConstraints gbc = new GridBagConstraints();
 
-    private GameWindow() {/* prevent uninitialized instances */}
+    private MainGameFrame() {/* prevent uninitialized instances */}
 
-    public GameWindow(String title, GameController gameController) {
+    public MainGameFrame(String title, GameController gameController) {
         super(title);
 
         this.gameController = gameController;
 
+        // scale according to a percentage of available device screen size
         Dimension scaledSize = this.gameController.getScaledSize();
         this.setSize(scaledSize);
         this.setPreferredSize(scaledSize);
         this.setMinimumSize(scaledSize);
 
-//        this.setBackground(Color.RED);
-
-        //  layout to make a 3-row by 1-column grid
+        //  layout to allow most vertical space for the game, a little for game controls
         setLayout(new GridBagLayout());
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

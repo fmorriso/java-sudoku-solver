@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 
 public class PuzzleControlsSubPanel extends JPanel {
     private GameController gameController;
-    private GameWindow parentWindow;
+    private MainGameFrame parentWindow;
 
     private PuzzleControlsSubPanel() {/* prevent uninitialized instances. */}
-    public PuzzleControlsSubPanel(GameWindow parentWindow) {
+    public PuzzleControlsSubPanel(MainGameFrame parentWindow) {
         this.parentWindow = parentWindow;
         this.gameController = this.parentWindow.getGameController();
         //

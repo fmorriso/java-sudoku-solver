@@ -10,11 +10,11 @@ import java.util.UUID;
 public class PuzzleGridSubPanel extends JPanel {
 
     private GameController gameController;
-    private GameWindow parentWindow;
+    private MainGameFrame parentWindow;
     private ArrayList gridList;
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
-    public PuzzleGridSubPanel(GameWindow parentWindow) {
+    public PuzzleGridSubPanel(MainGameFrame parentWindow) {
 
         this.parentWindow = parentWindow;
         this.parentWindow.getGameController();
