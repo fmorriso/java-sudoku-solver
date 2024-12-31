@@ -3,13 +3,13 @@ import java.awt.*;
 import java.text.MessageFormat;
 import java.util.UUID;
 
-public class InnerGrid extends JPanel {
+public class InnerGridSubPanel extends JPanel {
 
     private final UUID uniqueId;
-    private final OuterGrid parentWindow;
+    private final OuterGridSubPanel parentWindow;
     private final GameController gameController;
 
-    public InnerGrid(OuterGrid parentWindow, GameController gameController) {
+    public InnerGridSubPanel(OuterGridSubPanel parentWindow, GameController gameController) {
         this.uniqueId = UUID.randomUUID();
         this.parentWindow = parentWindow;
         this.gameController = gameController;

@@ -38,7 +38,7 @@ public class PuzzleGridSubPanel extends JPanel {
                 UUID uniqueId = UUID.randomUUID();
                 PuzzleGrid grid = new PuzzleGrid(uniqueId, gridNumber, row, col, gameController);
                 boolean add = gridList.add(grid);
-                OuterGrid outerGrid = new OuterGrid(this, grid,gameController);
+                OuterGridSubPanel outerGrid = new OuterGridSubPanel(this, grid,gameController);
                 this.add(outerGrid);
                 gridNumber++;
             }
