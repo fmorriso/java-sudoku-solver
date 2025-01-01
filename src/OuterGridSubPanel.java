@@ -34,7 +34,8 @@ public class OuterGridSubPanel extends JPanel {
         this.setToolTipText(String.format("Outer Grid %s", this.uniqueId));
 
         setLayout(new GridLayout(3, 3));
-        for (int i = 0; i < 9; i++) {
+        // Why is the limit 3 instead of 9???
+        for (int i = 0; i < 3; i++) {
             InnerGridSubPanel innerGrid = new InnerGridSubPanel(this, gameController);
             innerGrids.add(innerGrid);
             this.add(innerGrid);

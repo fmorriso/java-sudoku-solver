@@ -24,6 +24,9 @@ public class InnerGridSubPanel extends JPanel {
         generateDisplayCells();
     }
 
+    /**
+     * generates the number selectors for a given cell
+     */
     private void generateDisplayCells()    {
         for (int row = 0; row < PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
             for (int col = 0; col < PuzzleGrid.CELLS_PER_GRID_COL; col++) {
