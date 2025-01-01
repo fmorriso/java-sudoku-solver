@@ -12,18 +12,18 @@ public class Cell {
     private int row; // the full row this cell is a member of
     private int col; // the full column this cell is a member of
     private ArrayList<Integer> eligibleValues;
-    private PuzzleGrid parentGrid;
+    private GameController gameController;
 
     private Cell() {/* prevent uninitialized instances */}
 
     public ArrayList<Integer> getEligibleValues() { return eligibleValues; }
 
-    public Cell(int row, int col, int value, PuzzleGrid parentGrid) {
+    public Cell(int row, int col, int value, GameController gameController) {
         this.uniqueID = UUID.randomUUID();
         this.row = row;
         this.col = col;
         this.value = value;
-        this.parentGrid = parentGrid;
+        this.gameController = gameController;
         resetEligibleValues();
     }
 
@@ -53,8 +53,12 @@ public class Cell {
     }
 
     public void updateEligibleValues(ArrayList<Integer> values){
-        this.eligibleValues.clear();
-        this.eligibleValues.addAll(values);
+        if (eligibleValues == null) {
+            eligibleValues = new ArrayList<>(values);
+        } else {
+            eligibleValues.clear();
+            this.eligibleValues.addAll(values);
+        }
     }
 
     @Override

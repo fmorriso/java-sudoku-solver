@@ -20,6 +20,20 @@ public class InnerGridSubPanel extends JPanel {
 
         this.setBackground(BACKGROUND_COLOR);
         this.setBorder(BORDER);
+
+        generateDisplayCells();
+    }
+
+    private void generateDisplayCells()    {
+        for (int row = 0; row < PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
+            for (int col = 0; col < PuzzleGrid.CELLS_PER_GRID_COL; col++) {
+                Cell cell = new Cell(row, col, 0, gameController);
+                CellDisplay cellDisplay = new CellDisplay(cell);
+                gameController.addCell(cell);
+                this.add(cellDisplay);
+            }
+        }
+
     }
 
     @Override

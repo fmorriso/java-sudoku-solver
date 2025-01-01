@@ -17,7 +17,8 @@ public class PuzzleGridSubPanel extends JPanel {
     public PuzzleGridSubPanel(MainGameFrame parentWindow) {
 
         this.parentWindow = parentWindow;
-        this.parentWindow.getGameController();
+        this.gameController = parentWindow.getGameController();
+
         this.gridList = new ArrayList<PuzzleGrid>(9);
         this.setToolTipText("Puzzle Grid Sub Panel");
         this.setBorder(BorderFactory.createLineBorder(Color.green.darker(), 8));
