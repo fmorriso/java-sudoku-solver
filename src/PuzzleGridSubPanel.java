@@ -11,7 +11,7 @@ public class PuzzleGridSubPanel extends JPanel {
 
     private GameController gameController;
     private MainGameFrame parentWindow;
-    private ArrayList gridList;
+    private ArrayList<PuzzleGrid> gridList;
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
     public PuzzleGridSubPanel(MainGameFrame parentWindow) {
@@ -25,11 +25,13 @@ public class PuzzleGridSubPanel extends JPanel {
 
         GridLayout gridLayout = new GridLayout(3, 3);
         this.setLayout(gridLayout);
+
         setUpNewGrids();
 
     }
 
     private void setUpNewGrids() {
+        System.out.println("setUpNewGrids");
         gridList.clear();
         int gridNumber = 1;
         for(int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {

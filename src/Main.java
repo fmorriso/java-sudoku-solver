@@ -42,4 +42,17 @@ public class Main {
         Runtime.Version rtv = Runtime.version();
         return String.format("%s.%s.%s.%s", rtv.feature(), rtv.interim(), rtv.update(), rtv.patch());
     }
+
+    /** return the name of the currently executing method
+     * @param depth - whole number indicating how deep into the stack trace to dive into (usually 1 is good enough)
+     * @return String containing the currently executing method name
+     */
+    public static String getMethodName(final int depth)
+    {
+        final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+
+        //System. out.println(ste[ste.length-depth].getClassName()+"#"+ste[ste.length-depth].getMethodName());
+        // return ste[ste.length - depth].getMethodName();  //Wrong, fails for depth = 0
+        return ste[ste.length - 1 - depth].getMethodName(); //Thank you Tom Tresansky
+    }
 }

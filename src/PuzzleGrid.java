@@ -42,6 +42,7 @@ public class PuzzleGrid {
             for (int col = 1; col <= CELLS_PER_GRID_COL; col++) {
                 // NOTE: we use a value of zero (0) to signify an empty cell in the grid.
                 Cell cell = new Cell(row, col, 0, gameController);
+                System.out.format("Cell: %s%n", cell);
                 cells.add(cell);
                 gameController.addCell(cell);
             }
