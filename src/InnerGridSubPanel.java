@@ -22,6 +22,8 @@ public class InnerGridSubPanel extends JPanel {
         this.setBackground(BACKGROUND_COLOR);
         this.setBorder(BORDER);
 
+        System.out.format("InnerGridSubPanel constructor from %s%n", parentWindow);
+
         generateDisplayCells();
     }
 
@@ -44,7 +46,7 @@ public class InnerGridSubPanel extends JPanel {
 
     @Override
     public String toString() {
-        return MessageFormat.format("InnerGrid '{' uniqueId={0} '}'", uniqueId);
+        return MessageFormat.format("InnerGridSubPanel '{' uniqueId={0} '}'", uniqueId);
     }
 
 }
