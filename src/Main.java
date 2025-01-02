@@ -46,28 +46,33 @@ public class Main {
         return String.format("%s.%s.%s.%s", rtv.feature(), rtv.interim(), rtv.update(), rtv.patch());
     }
 
-    /** return the name of the currently executing method
-     * @return String containing the currently executing method name
-     */
-    public static String getCurrentMethodName() {
-        // Get the stack trace
-        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
-        // The current method is at index 2 (0 is getStackTrace, 1 is printCurrentMethodName)
-        return stackTrace[2].getMethodName();
-    }
-
     /**
      * Display the currently executing class and method name
      */
     public static void displayCurrentMethod(){
         // Get the stack trace
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        StringBuilder sbr = new StringBuilder();
+
+        // grab the classname
+        String className = stackTrace[2].getClassName();
+
+        // grab the containing .java filename
+        String fileName = stackTrace[2].getFileName();
+        String[] fileParts = fileName.split("\\.");
+        if(!fileParts[0].equalsIgnoreCase(className)) {
+            sbr.append("|").append(fileName);
+        }
 
         // The current method is at index 2 (0 is getStackTrace, 1 is printCurrentMethodName)
         String methodName = stackTrace[2].getMethodName();
-        String className = stackTrace[2].getClassName();
 
-        System.out.format("|%s|%s|%n", className, methodName);
+        // assume any method initially identified as <init> is the construcotr
+        if(methodName.equals("<init>")) methodName = "constructor";
+
+        sbr.append("|").append(className)
+                .append("|").append(methodName).append("|");
+
+        System.out.println(sbr.toString());
     }
 }

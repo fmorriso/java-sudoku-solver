@@ -14,6 +14,7 @@ public class InnerGridSubPanel extends JPanel {
     private final GameController gameController;
 
     public InnerGridSubPanel(OuterGridSubPanel parentWindow, GameController gameController) {
+        Main.displayCurrentMethod();
         this.uniqueId = UUID.randomUUID();
         this.parentWindow = parentWindow;
         this.gameController = gameController;
