@@ -31,7 +31,7 @@ public class PuzzleGridSubPanel extends JPanel {
     }
 
     private void setUpNewGrids() {
-        System.out.println("setUpNewGrids");
+        Main.displayCurrentMethod();
         gridList.clear();
         int gridNumber = 1;
         for(int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {

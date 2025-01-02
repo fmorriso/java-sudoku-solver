@@ -11,10 +11,13 @@ public class Main {
         String title = String.format("Sudoku Solver using java version %s", getJavaVersion());
         System.out.println(title);
 
+        displayCurrentMethod();
+
         configureLogger();
         logger.info(title);
 
         GameController gameController = new GameController();
+
 
         GUI gui = new GUI(title, gameController);
         SwingUtilities.invokeLater(gui);
@@ -44,15 +47,27 @@ public class Main {
     }
 
     /** return the name of the currently executing method
-     * @param depth - whole number indicating how deep into the stack trace to dive into (usually 1 is good enough)
      * @return String containing the currently executing method name
      */
-    public static String getMethodName(final int depth)
-    {
-        final StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+    public static String getCurrentMethodName() {
+        // Get the stack trace
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 
-        //System. out.println(ste[ste.length-depth].getClassName()+"#"+ste[ste.length-depth].getMethodName());
-        // return ste[ste.length - depth].getMethodName();  //Wrong, fails for depth = 0
-        return ste[ste.length - 1 - depth].getMethodName(); //Thank you Tom Tresansky
+        // The current method is at index 2 (0 is getStackTrace, 1 is printCurrentMethodName)
+        return stackTrace[2].getMethodName();
+    }
+
+    /**
+     * Display the currently executing class and method name
+     */
+    public static void displayCurrentMethod(){
+        // Get the stack trace
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+
+        // The current method is at index 2 (0 is getStackTrace, 1 is printCurrentMethodName)
+        String methodName = stackTrace[2].getMethodName();
+        String className = stackTrace[2].getClassName();
+
+        System.out.format("|%s|%s|%n", className, methodName);
     }
 }

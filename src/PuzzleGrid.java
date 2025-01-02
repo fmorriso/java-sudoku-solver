@@ -16,10 +16,15 @@ public class PuzzleGrid {
 
     private PuzzleGrid() {/* prevent uninitialized instances */}
     public PuzzleGrid(UUID gridUniqueId, int gridNumber, int row, int col, GameController gameController) {
+        Main.displayCurrentMethod();
         this.gridUniqueId = gridUniqueId;
         this.gridNumber = gridNumber;
         this.gameController = gameController;
         cells = new ArrayList<>(9);
+    }
+
+    private void InitPuzzleGrid() {
+
     }
 
     public UUID getGridUniqueId() {return gridUniqueId;}

@@ -22,7 +22,7 @@ public class MainGameFrame extends JFrame {
 
     public MainGameFrame(String title, GameController gameController) {
         super(title);
-
+        Main.displayCurrentMethod();
         this.gameController = gameController;
 
         // scale according to a percentage of available device screen size

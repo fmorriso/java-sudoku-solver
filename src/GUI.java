@@ -15,6 +15,7 @@ public class GUI implements Runnable {
      */
     @Override
     public void run() {
+        Main.displayCurrentMethod();
         MainGameFrame frame = new MainGameFrame(title, gameController);
         frame.setVisible(true);
     }
