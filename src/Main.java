@@ -47,7 +47,9 @@ public class Main {
     }
 
     /**
-     * Display the currently executing class and method name
+     * Display the currently executing class and method name.
+     * If the class is located in a filename other than the name of the class,
+     * that filename is included in the output.
      */
     public static void displayCurrentMethod(){
         // Get the stack trace
