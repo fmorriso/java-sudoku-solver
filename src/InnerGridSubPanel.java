@@ -13,7 +13,7 @@ public class InnerGridSubPanel extends JPanel {
     private final OuterGridSubPanel parentWindow;
     private final GameController gameController;
 
-    public InnerGridSubPanel(OuterGridSubPanel parentWindow, GameController gameController) {
+    public InnerGridSubPanel(OuterGridSubPanel parentWindow, GameController gameController) throws Exception {
         LoggingUtilities.displayCurrentMethod();
         this.uniqueId = UUID.randomUUID();
         this.parentWindow = parentWindow;
@@ -23,7 +23,7 @@ public class InnerGridSubPanel extends JPanel {
         this.setBackground(BACKGROUND_COLOR);
         this.setBorder(BORDER);
 
-        System.out.format("InnerGridSubPanel constructor from %s%n", parentWindow);
+        LoggingUtilities.log( String.format("InnerGridSubPanel constructor from %s%n", parentWindow) );
 
         generateDisplayCells();
     }
@@ -31,12 +31,13 @@ public class InnerGridSubPanel extends JPanel {
     /**
      * generates the number selectors for a given cell
      */
-    private void generateDisplayCells()    {
-        System.out.format("\tgenerateDisplayCells: %d%n", ++Counter);
+    private void generateDisplayCells() throws Exception {
+        Counter++;
+        LoggingUtilities.log( String.format("\tgenerateDisplayCells: %d%n", Counter) );
         for (int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= PuzzleGrid.CELLS_PER_GRID_COL; col++) {
                 Cell cell = new Cell(row, col, 0, gameController);
-                //System.out.format("Cell: %s%n", cell);
+                LoggingUtilities.log( String.format("\t\tCell: %s%n", cell) );
                 CellDisplay cellDisplay = new CellDisplay(cell);
                 gameController.addCell(cell);
                 this.add(cellDisplay);

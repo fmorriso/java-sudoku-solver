@@ -12,6 +12,9 @@ import java.util.logging.Formatter;
 public class LoggingUtilities {
     private static final Logger logger = Logger.getLogger(LoggingUtilities.class.getName());
     private static String logFileName = "";
+    private static boolean displayMethodNames = false;
+    private static boolean logMethodNames = false;
+
 
     public static void configureLogger(String newFilename) {
         try {
@@ -36,6 +39,14 @@ public class LoggingUtilities {
 
             // Add the handler to the logger
             logger.addHandler(fileHandler);
+
+            if(KeyValueSettingsUtilities.contains("displayMethodNames")) {
+                displayMethodNames = Boolean.parseBoolean(KeyValueSettingsUtilities.getValue("displayMethodNames"));
+            }
+
+            if(KeyValueSettingsUtilities.contains("logMethodNames")) {
+                logMethodNames = Boolean.parseBoolean(KeyValueSettingsUtilities.getValue("logMethodNames"));
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -67,7 +78,11 @@ public class LoggingUtilities {
      * If the class is located in a filename other than the name of the class,
      * that filename is included in the output.
      */
-    public static void displayCurrentMethod(){
+    public static void displayCurrentMethod() throws Exception {
+
+        // don't bother if neither of the two switches is turned on
+        if(!displayMethodNames && !logMethodNames) return;
+
         // Get the stack trace
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         StringBuilder sbr = new StringBuilder();
@@ -91,7 +106,11 @@ public class LoggingUtilities {
         sbr.append("|").append(className)
                 .append("|").append(methodName).append("|");
 
-        System.out.println(sbr.toString());
+        String message = sbr.toString();
+        //
+        if(displayMethodNames) System.out.println(message);
+        if(logMethodNames) LoggingUtilities.log(message);
+
     }
 }
 

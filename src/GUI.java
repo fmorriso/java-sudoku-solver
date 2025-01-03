@@ -15,8 +15,18 @@ public class GUI implements Runnable {
      */
     @Override
     public void run() {
-        LoggingUtilities.displayCurrentMethod();
-        MainGameFrame frame = new MainGameFrame(title, gameController);
+        try {
+            LoggingUtilities.displayCurrentMethod();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        MainGameFrame frame = null;
+        try {
+            frame = new MainGameFrame(title, gameController);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         frame.setVisible(true);
     }
 }

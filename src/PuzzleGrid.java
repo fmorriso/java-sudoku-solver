@@ -15,7 +15,7 @@ public class PuzzleGrid {
     private GameController gameController;
 
     private PuzzleGrid() {/* prevent uninitialized instances */}
-    public PuzzleGrid(UUID gridUniqueId, int gridNumber, int row, int col, GameController gameController) {
+    public PuzzleGrid(UUID gridUniqueId, int gridNumber, int row, int col, GameController gameController) throws Exception {
         LoggingUtilities.displayCurrentMethod();
         this.gridUniqueId = gridUniqueId;
         this.gridNumber = gridNumber;

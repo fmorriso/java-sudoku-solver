@@ -14,7 +14,7 @@ public class PuzzleGridSubPanel extends JPanel {
     private ArrayList<PuzzleGrid> gridList;
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
-    public PuzzleGridSubPanel(MainGameFrame parentWindow) {
+    public PuzzleGridSubPanel(MainGameFrame parentWindow) throws Exception {
         LoggingUtilities.displayCurrentMethod();
         this.parentWindow = parentWindow;
         this.gameController = parentWindow.getGameController();
@@ -30,17 +30,17 @@ public class PuzzleGridSubPanel extends JPanel {
 
     }
 
-    private void setUpNewGrids() {
+    private void setUpNewGrids() throws Exception {
         LoggingUtilities.displayCurrentMethod();
         gridList.clear();
         int gridNumber = 1;
         for(int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
             for(int col = 1; col <= PuzzleGrid.CELLS_PER_GRID_COL; col++) {
-                System.out.format("Setting up new PuzzleGrid number %d for row %d, col %d%n"
-                        , gridNumber, row, col);
+                LoggingUtilities.log( String.format("Setting up new PuzzleGrid number %d for row %d, col %d%n"
+                        , gridNumber, row, col) );
                 UUID uniqueId = UUID.randomUUID();
                 PuzzleGrid grid = new PuzzleGrid(uniqueId, gridNumber, row, col, gameController);
-                System.out.format("PuzzleGrid %s%n", grid);
+                LoggingUtilities.log( String.format("PuzzleGrid %s%n", grid) );
                 boolean add = gridList.add(grid);
                 OuterGridSubPanel outerGrid = new OuterGridSubPanel(this, grid,gameController);
                 this.add(outerGrid);

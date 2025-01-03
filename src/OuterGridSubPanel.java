@@ -23,7 +23,7 @@ public class OuterGridSubPanel extends JPanel {
     private final GameController gameController;
     private final ArrayList<InnerGridSubPanel> innerGrids; //
 
-    public OuterGridSubPanel(PuzzleGridSubPanel parentWindow, PuzzleGrid grid, GameController gameController) {
+    public OuterGridSubPanel(PuzzleGridSubPanel parentWindow, PuzzleGrid grid, GameController gameController) throws Exception {
         this.parentWindow = parentWindow;
         this.grid = grid;
         this.gameController = gameController;
@@ -38,7 +38,7 @@ public class OuterGridSubPanel extends JPanel {
         //TODO: figure out why the limit needs to be 3 instead of 9
         for (int i = 0; i < 3; i++) {
             InnerGridSubPanel innerGrid = new InnerGridSubPanel(this, gameController);
-            System.out.format("%s%n", innerGrid);
+            LoggingUtilities.log( innerGrid.toString() );
             innerGrids.add(innerGrid);
             this.add(innerGrid);
         }

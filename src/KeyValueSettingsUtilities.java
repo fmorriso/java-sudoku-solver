@@ -55,7 +55,7 @@ public class KeyValueSettingsUtilities {
         try (FileOutputStream output = new FileOutputStream(filename)) {
             // Store properties to the file
             properties.store(output, "Configuration File");
-            System.out.println("Properties have been written to the file: " + filename);
+            LoggingUtilities.log( String.format("Properties have been written to the file: %s", filename) );
         } catch (IOException e) {
             e.printStackTrace();
         }

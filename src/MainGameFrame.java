@@ -20,7 +20,7 @@ public class MainGameFrame extends JFrame {
 
     private MainGameFrame() {/* prevent uninitialized instances */}
 
-    public MainGameFrame(String title, GameController gameController) {
+    public MainGameFrame(String title, GameController gameController) throws Exception {
         super(title);
         LoggingUtilities.displayCurrentMethod();
 
@@ -47,7 +47,7 @@ public class MainGameFrame extends JFrame {
     /**
      * The upper portion of the main window is devoted to holding the grids of sudoku numbers
      */
-    private void createPuzzlePanel() {
+    private void createPuzzlePanel() throws Exception {
         LoggingUtilities.displayCurrentMethod();
         //PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
         PuzzleGridSubPanel puzzlePanel = new PuzzleGridSubPanel(this);
