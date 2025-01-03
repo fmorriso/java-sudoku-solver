@@ -60,4 +60,8 @@ public class KeyValueSettingsUtilities {
             e.printStackTrace();
         }
     }
+
+    public static boolean contains(String key) {
+        return properties.containsKey(key);
+    }
 }

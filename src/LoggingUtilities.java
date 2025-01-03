@@ -1,7 +1,9 @@
-import java.io.File;
-import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+//
 import java.text.SimpleDateFormat;
 import java.util.Date;
+//
 import java.util.logging.*;
 //
 import java.util.logging.LogRecord;
@@ -20,15 +22,23 @@ public class LoggingUtilities {
                 logFileName = newFilename;
             }
 
+            // Check to see if we should append to existing or start fresh
+            boolean appendToExisting = false;
+            if(KeyValueSettingsUtilities.contains("logMaxLinesToKeep")){
+                var maxLinesToKeep = Integer.parseInt(KeyValueSettingsUtilities.getValue("logMaxLinesToKeep"));
+                long currentLineCount = Files.lines(Path.of(logFileName)).count();
+                appendToExisting = currentLineCount <= maxLinesToKeep;
+            }
+
             // Create a FileHandler
-            FileHandler fileHandler = new FileHandler(logFileName, true);
+            FileHandler fileHandler = new FileHandler(logFileName, appendToExisting);
             fileHandler.setFormatter(new CustomLoggingFormatter()); // Use the custom formatter
 
             // Add the handler to the logger
             logger.addHandler(fileHandler);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

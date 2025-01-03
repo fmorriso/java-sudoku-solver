@@ -18,6 +18,9 @@ public class Main {
         LoggingUtilities.configureLogger(logFilename);
         LoggingUtilities.log(title);
 
+        String lastUsedDate = DateTimeUtilities.getCurrentDateForDisplay();
+        KeyValueSettingsUtilities.setValue("lastUsedDate", lastUsedDate);
+
         GameController gameController = new GameController();
         GUI gui = new GUI(title, gameController);
         SwingUtilities.invokeLater(gui);
