@@ -22,7 +22,7 @@ public class MainGameFrame extends JFrame {
 
     public MainGameFrame(String title, GameController gameController) {
         super(title);
-        Main.displayCurrentMethod();
+        LoggingUtilities.displayCurrentMethod();
 
         this.gameController = gameController;
 
@@ -48,7 +48,7 @@ public class MainGameFrame extends JFrame {
      * The upper portion of the main window is devoted to holding the grids of sudoku numbers
      */
     private void createPuzzlePanel() {
-        Main.displayCurrentMethod();
+        LoggingUtilities.displayCurrentMethod();
         //PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
         PuzzleGridSubPanel puzzlePanel = new PuzzleGridSubPanel(this);
         puzzlePanel.setBackground(Color.BLUE);
