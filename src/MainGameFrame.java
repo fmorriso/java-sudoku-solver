@@ -23,6 +23,7 @@ public class MainGameFrame extends JFrame {
     public MainGameFrame(String title, GameController gameController) {
         super(title);
         Main.displayCurrentMethod();
+
         this.gameController = gameController;
 
         // scale according to a percentage of available device screen size
@@ -47,6 +48,7 @@ public class MainGameFrame extends JFrame {
      * The upper portion of the main window is devoted to holding the grids of sudoku numbers
      */
     private void createPuzzlePanel() {
+        Main.displayCurrentMethod();
         //PuzzlePanel puzzlePanel = new PuzzlePanel(this, gameController);
         PuzzleGridSubPanel puzzlePanel = new PuzzleGridSubPanel(this);
         puzzlePanel.setBackground(Color.BLUE);

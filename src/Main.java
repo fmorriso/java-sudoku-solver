@@ -1,5 +1,6 @@
 import javax.swing.SwingUtilities;
 import java.io.IOException;
+import java.security.Key;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -7,7 +8,7 @@ public class Main {
 
     public static final Logger logger = Logger.getLogger(Main.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String title = String.format("Sudoku Solver using java version %s", getJavaVersion());
         System.out.println(title);
 
@@ -15,6 +16,9 @@ public class Main {
 
         configureLogger();
         logger.info(title);
+
+        KeyValueSettingsUtilities.setFileName("settings.txt");
+        boolean debugOn = Boolean.parseBoolean(KeyValueSettingsUtilities.getValue("debug"));
 
         GameController gameController = new GameController();
 

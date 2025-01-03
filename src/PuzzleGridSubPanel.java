@@ -15,7 +15,7 @@ public class PuzzleGridSubPanel extends JPanel {
 
     private PuzzleGridSubPanel() {/* prevent uninitialized instances. */}
     public PuzzleGridSubPanel(MainGameFrame parentWindow) {
-
+        Main.displayCurrentMethod();
         this.parentWindow = parentWindow;
         this.gameController = parentWindow.getGameController();
 

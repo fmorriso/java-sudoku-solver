@@ -18,6 +18,7 @@ A simple implementation of the Sudoku game
 | 2024-12-30 | adjust grid sizes, colors, borders |
 | 2024-12-31 | update access token                |
 | 2025-01-02 | add method tracing capability      |
+| 2025-01-03 | Add key/value settings capability  |
 
 
 ## References
