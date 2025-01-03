@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,11 +9,19 @@ import java.util.logging.Formatter;
 
 public class LoggingUtilities {
     private static final Logger logger = Logger.getLogger(LoggingUtilities.class.getName());
+    private static String logFileName = "";
 
-    public static void configureLogger(String logFilename) {
+    public static void configureLogger(String newFilename) {
         try {
+            if (newFilename == null || newFilename.isEmpty()) {
+                String msg = "Log filename is null or empty";
+                throw new IllegalArgumentException(msg);
+            } else {
+                logFileName = newFilename;
+            }
+
             // Create a FileHandler
-            FileHandler fileHandler = new FileHandler(logFilename, true);
+            FileHandler fileHandler = new FileHandler(logFileName, true);
             fileHandler.setFormatter(new CustomLoggingFormatter()); // Use the custom formatter
 
             // Add the handler to the logger
@@ -23,16 +32,24 @@ public class LoggingUtilities {
         }
     }
 
-    public static void log(String message) {
+    public static void log(String message) throws Exception {
+        sanityChecks(message);
         logger.log(Level.INFO, message);
     }
 
-    public static void log(String message, Level level) {
+    public static void log(String message, Level level) throws Exception {
+        sanityChecks(message);
         logger.log(level, message);
     }
 
-    private static void sanityCheck(String message) {
+    private static void sanityChecks(String message) throws Exception {
+        if(logFileName == null || logFileName.isEmpty()) {
+            throw new Exception("Filename was not set.  Please set it first getting or setting key/value pairs.");
+        }
 
+        if(message == null || message.isEmpty()) {
+            throw new Exception("Message to log cannot be empty or null.");
+        }
     }
 
     /**
