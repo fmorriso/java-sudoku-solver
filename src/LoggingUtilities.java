@@ -73,6 +73,10 @@ public class LoggingUtilities {
         }
     }
 
+    public static void generateSeparator() {
+        logger.log(Level.INFO, "=".repeat(100));
+    }
+
     /**
      * Display the currently executing class and method name.
      * If the class is located in a filename other than the name of the class,

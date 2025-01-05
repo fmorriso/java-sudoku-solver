@@ -8,14 +8,13 @@ public class Main {
         String title = String.format("Sudoku Solver using java version %s", getJavaVersion());
         System.out.println(title);
 
-        LoggingUtilities.displayCurrentMethod();
-
-
         KeyValueSettingsUtilities.setFileName("settings.txt");
         boolean debugOn = Boolean.parseBoolean(KeyValueSettingsUtilities.getValue("debug"));
         String logFilename = KeyValueSettingsUtilities.getValue("logfile");
 
         LoggingUtilities.configureLogger(logFilename);
+        LoggingUtilities.generateSeparator();
+        LoggingUtilities.displayCurrentMethod();
         LoggingUtilities.log(title);
 
         String lastUsedDate = DateTimeUtilities.getCurrentDateForDisplay();
@@ -25,8 +24,6 @@ public class Main {
         GUI gui = new GUI(title, gameController);
         SwingUtilities.invokeLater(gui);
     }
-
-
 
     /** get the java version that is running the current program
      * @return string containing the java version running the current program
