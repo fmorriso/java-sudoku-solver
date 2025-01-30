@@ -4,21 +4,22 @@ A simple implementation of the Sudoku game
 
 ## Tools Used
 
-| Tool     |  Version |
-| :------- | -------: |
-| Java     | 23.0.1.0 |
-| IntelliJ | 2024.3.1 |
-| VSCode   |   1.96.2 |
+| Tool     |    Version |
+| :------- |-----------:|
+| Java     |   23.0.2.0 |
+| IntelliJ | 2024.3.2.2 |
+| VSCode   |     1.96.4 |
 
 ## Change History
 
-| Date       | Description                        |
-|:-----------|:-----------------------------------|
-| 2024-12-12 | Initial creation                   |
-| 2024-12-30 | adjust grid sizes, colors, borders |
-| 2024-12-31 | update access token                |
-| 2025-01-02 | add method tracing capability      |
-| 2025-01-03 | Add key/value settings capability  |
+| Date       | Description                         |
+|:-----------|:------------------------------------|
+| 2024-12-12 | Initial creation                    |
+| 2024-12-30 | adjust grid sizes, colors, borders  |
+| 2024-12-31 | update access token                 |
+| 2025-01-02 | add method tracing capability       |
+| 2025-01-03 | Add key/value settings capability   |
+| 2025-01-30 | verify code runs with Java 23.0.2.0 |
 
 
 ## References

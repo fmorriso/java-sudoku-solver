@@ -33,11 +33,12 @@ public class InnerGridSubPanel extends JPanel {
      */
     private void generateDisplayCells() throws Exception {
         Counter++;
-        LoggingUtilities.log( String.format("\tgenerateDisplayCells: %d%n", Counter) );
+        LoggingUtilities.displayCurrentMethod();
+        LoggingUtilities.log( String.format("\tgenerateDisplayCells for InnerGrid: %d%n", Counter) );
         for (int row = 1; row <= PuzzleGrid.CELLS_PER_GRID_ROW; row++) {
             for (int col = 1; col <= PuzzleGrid.CELLS_PER_GRID_COL; col++) {
                 Cell cell = new Cell(row, col, 0, gameController);
-                LoggingUtilities.log( String.format("\t\tCell: %s%n", cell) );
+                LoggingUtilities.log( String.format("\t\t%s%n", cell) );
                 CellDisplay cellDisplay = new CellDisplay(cell);
                 gameController.addCell(cell);
                 this.add(cellDisplay);
