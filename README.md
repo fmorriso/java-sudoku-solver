@@ -20,6 +20,7 @@ A simple implementation of the Sudoku game
 | 2025-01-02 | add method tracing capability       |
 | 2025-01-03 | Add key/value settings capability   |
 | 2025-01-30 | verify code runs with Java 23.0.2.0 |
+| 2025-04-18 | verify code runs with Java 24.0.0.0 |
 
 
 ## References

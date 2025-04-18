@@ -1,8 +1,5 @@
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 public class KeyValueSettingsUtilities {
@@ -33,10 +30,11 @@ public class KeyValueSettingsUtilities {
 
     private static void sanityChecks(String key) throws Exception {
         if(filename == null || filename.isEmpty()) {
-            throw new Exception("Filename was not set.  Please set it first getting or setting key/value pairs.");
+            throw new Exception("Filename was not set.  Please set it first before getting or setting key/value pairs.");
         }
         if(!new File(filename).exists()) {
             String msg = String.format("File %s does not exist", filename);
+            throw new FileNotFoundException(msg);
         }
         if(key == null || key.isEmpty()) {
             throw new Exception("Key is empty or null.");
@@ -55,7 +53,6 @@ public class KeyValueSettingsUtilities {
         try (FileOutputStream output = new FileOutputStream(filename)) {
             // Store properties to the file
             properties.store(output, "Configuration File");
-            LoggingUtilities.log( String.format("Properties have been written to the file: %s", filename) );
         } catch (IOException e) {
             e.printStackTrace();
         }
